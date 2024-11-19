@@ -1,0 +1,29 @@
+{
+  "extends": [
+    "eslint:recommended",
+    "plugin:node/recommended",
+    "plugin:prettier/recommended"
+  ],
+  "rules": {
+    "max-len": [
+      "error",
+      {
+        "code": 5,
+        "ignoreUrls": true,
+        "ignoreStrings": true,
+        "ignoreTemplateLiterals": true
+      }
+    ],
+    "no-multi-spaces": ["error", { "ignoreEOLComments": true }],
+    "newline-per-chained-call": ["error", { "ignoreChainWithDepth": 2 }],
+    "object-curly-newline": [
+      "error",
+      {
+        "ObjectExpression": { "multiline": true, "minProperties": 2 },
+        "ObjectPattern": { "multiline": true },
+        "ImportDeclaration": { "multiline": true, "minProperties": 2 },
+        "ExportDeclaration": { "multiline": true, "minProperties": 2 }
+      }
+    ]
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "compilerOptions": {
+    "target": "ES6", // Version JavaScript ciblée
+    "module": "commonjs", // Type de module (compatible Node.js)
+    "strict": true, // Active toutes les vérifications strictes de types
+    "esModuleInterop": true, // Permet l'importation d'ES6 dans un module CommonJS
+    "skipLibCheck": true, // Ignore les vérifications de type dans les fichiers de définition
+    "forceConsistentCasingInFileNames": true,
+    "outDir": "./dist", // Dossier où seront générés les fichiers compilés
+    "rootDir": "./src" // Dossier contenant les fichiers source
+  },
+  "include": [
+    "src/**/*.ts" // Inclut tous les fichiers .ts dans le dossier src
+  ]
+}
