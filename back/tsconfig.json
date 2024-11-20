@@ -7,7 +7,9 @@
     "skipLibCheck": true, // Ignore les vérifications de type dans les fichiers de définition
     "forceConsistentCasingInFileNames": true,
     "outDir": "./dist", // Dossier où seront générés les fichiers compilés
-    "rootDir": "./src" // Dossier contenant les fichiers source
+    "rootDir": "./src", // Dossier contenant les fichiers source
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true
   },
   "include": [
     "src/**/*.ts" // Inclut tous les fichiers .ts dans le dossier src
