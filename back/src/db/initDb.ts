@@ -1,8 +1,7 @@
 import sequelize from "./sequelize";
 import seeding from "./seeding";
 
-const force = true;
-
+const force = false;
 const initialisationDB = async () => {
   try {
     await sequelize.sync({ force });

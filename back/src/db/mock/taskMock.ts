@@ -27,7 +27,7 @@ export const tasksMock: Omit<ITask, "id">[] = [
     title: "Corriger les bugs signalés par QA",
     description: "Analyse des tickets ouverts sur GitHub.",
     status: "done",
-    assignedTo: 1,
+    assignedTo: null,
     dueDate: new Date("2024-11-18"),
   },
   {

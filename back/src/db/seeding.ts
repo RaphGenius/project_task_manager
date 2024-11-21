@@ -2,8 +2,6 @@ import { UserModel, TaskModel } from "../models";
 import { hashPassword } from "../utils/hash/hash";
 import { tasksMock } from "./mock/taskMock";
 import { usersMock } from "./mock/userMock";
-import { Sequelize } from "sequelize-typescript";
-
 const seeding = async () => {
   try {
     const mockUsersWithHashPassword = await Promise.all(
@@ -16,7 +14,7 @@ const seeding = async () => {
     console.log("Users seeder done");
 
     await TaskModel.bulkCreate(tasksMock);
-    console.log("Task Seeder done");
+    console.log("Tasks Seeder done");
   } catch (error) {
     console.log("error while seeding", error);
   }
