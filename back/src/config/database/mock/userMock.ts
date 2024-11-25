@@ -1,6 +1,6 @@
-import { IUser } from "../../models/User";
+import { IUserBeforeCreation } from "../../../models/User";
 
-export const usersMock: Omit<IUser, "id">[] = [
+export const usersMock: IUserBeforeCreation[] = [
   {
     firstname: "Alice",
     lastname: "Doe",

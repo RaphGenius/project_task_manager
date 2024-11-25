@@ -2,11 +2,11 @@
   "name": "back_task_manager",
   "version": "1.0.0",
   "description": "Gestionnaire de tâche professionnel",
-  "main": "src/app.ts",
+  "main": "src/server.ts",
   "scripts": {
-    "dev": "nodemon --exec ts-node src/app.ts",
+    "dev": "nodemon --exec ts-node src/server.ts",
     "build": "tsc",
-    "start": "node dist/app.js"
+    "start": "node dist/server.js"
   },
   "author": "",
   "license": "ISC",
@@ -16,11 +16,14 @@
     "cors": "^2.8.5",
     "dotenv": "^16.4.5",
     "express": "^4.21.1",
+    "express-validator": "^7.2.0",
     "jsonwebtoken": "^9.0.2",
     "mariadb": "^3.4.0",
+    "module-alias": "^2.2.3",
     "reflect-metadata": "^0.2.2",
     "sequelize": "^6.37.5",
-    "sequelize-typescript": "^2.1.6"
+    "sequelize-typescript": "^2.1.6",
+    "tsconfig-paths": "^4.2.0"
   },
   "devDependencies": {
     "@types/bcrypt": "^5.0.2",

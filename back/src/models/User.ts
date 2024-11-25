@@ -1,5 +1,5 @@
 import { DataTypes, Model, Optional } from "sequelize";
-import sequelize from "../db/sequelize";
+import sequelize from "@config/database/sequelize";
 
 const role = ["user", "admin", "manager"] as const;
 type RoleType = (typeof role)[number];
@@ -13,9 +13,9 @@ export interface IUser {
   role: RoleType;
 }
 
-export interface IUserCreationAttributes extends Optional<IUser, "id"> {}
+export interface IUserBeforeCreation extends Optional<IUser, "id"> {}
 
-class User extends Model<IUser, IUserCreationAttributes> implements IUser {
+class User extends Model<IUser, IUserBeforeCreation> implements IUser {
   public id!: number;
   public firstname!: string;
   public lastname!: string;
@@ -64,6 +64,12 @@ User.init(
   },
   {
     sequelize,
+    defaultScope: { attributes: { exclude: ["password"] } },
+    hooks: {
+      afterCreate(user: Partial<User>, _) {
+        (user as Partial<User>).password = undefined;
+      },
+    },
   }
 );
 

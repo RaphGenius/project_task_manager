@@ -1,5 +1,5 @@
 import { DataTypes, Model, Optional } from "sequelize";
-import sequelize from "../db/sequelize";
+import sequelize from "@config/database/sequelize";
 
 const taskStatus = ["todo", "in_progress", "done", "canceled"] as const;
 type TaskStatusType = (typeof taskStatus)[number];

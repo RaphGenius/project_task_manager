@@ -1,4 +1,4 @@
-import { ITask } from "../../models/Task";
+import { ITask } from "../../../models/Task";
 
 export const tasksMock: Omit<ITask, "id">[] = [
   {

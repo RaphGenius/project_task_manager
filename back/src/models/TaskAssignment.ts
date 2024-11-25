@@ -1,5 +1,5 @@
-import { DataTypes, Model } from "sequelize";
-import sequelize from ".././db/sequelize";
+import { Model } from "sequelize";
+import sequelize from "@config/database/sequelize";
 
 export interface ITaskAssignement {
   task_id: number;

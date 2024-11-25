@@ -9,7 +9,19 @@
     "outDir": "./dist", // Dossier où seront générés les fichiers compilés
     "rootDir": "./src", // Dossier contenant les fichiers source
     "experimentalDecorators": true,
-    "emitDecoratorMetadata": true
+    "emitDecoratorMetadata": true,
+    "baseUrl": "./",
+    "paths": {
+      "@/*": ["src/*"],
+      "@config/*": ["src/config/*"],
+      "@controllers/*": ["src/controllers/*"],
+      "@middlewares/*": ["src/middlewares/*"],
+      "@models/*": ["src/models/*"],
+      "@routes/*": ["src/routes/*"],
+      "@utils/*": ["src/utils/*"],
+      "@validations/*": ["src/validations/*"],
+      "@services/*": ["src/services/*"]
+    }
   },
   "include": [
     "src/**/*.ts" // Inclut tous les fichiers .ts dans le dossier src

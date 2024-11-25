@@ -1,5 +1,5 @@
-import { UserModel, TaskModel } from "../models";
-import { hashPassword } from "../utils/hash/hash";
+import { UserModel, TaskModel } from "../../models";
+import { hashPassword } from "../../utils/hash/hash";
 import { tasksMock } from "./mock/taskMock";
 import { usersMock } from "./mock/userMock";
 const seeding = async () => {
