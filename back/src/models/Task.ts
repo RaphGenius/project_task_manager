@@ -1,7 +1,7 @@
 import { DataTypes, Model, Optional } from "sequelize";
 import sequelize from "@config/database/sequelize";
 
-const taskStatus = ["todo", "in_progress", "done", "canceled"] as const;
+export const taskStatus = ["todo", "in_progress", "done", "canceled"] as const;
 type TaskStatusType = (typeof taskStatus)[number];
 
 export interface ITask {
@@ -15,7 +15,7 @@ export interface ITask {
   updatedAt?: Date;
 }
 
-interface ITaskCreationAttributes
+export interface ITaskCreationAttributes
   extends Optional<ITask, "id" | "status" | "description" | "dueDate"> {}
 
 class Task extends Model<ITask, ITaskCreationAttributes> implements ITask {

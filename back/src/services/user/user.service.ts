@@ -8,7 +8,6 @@ export const findUserByEmail = async (email: string) => {
     where: { email },
     attributes: ["id", "password", "role"],
   });
-
   return user;
 };
 

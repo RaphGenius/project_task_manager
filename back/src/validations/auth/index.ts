@@ -1,20 +1,20 @@
-import { validateRequest } from "@/middlewares/validationRequest";
-import { body } from "express-validator";
+import { z } from "zod";
 
-const loginValidationSchema = [
-  body("email").isEmail().withMessage("L'adresse mail n'est pas valide;"),
-  body("password").notEmpty().withMessage("Le champ mot de passe est requis."),
-];
+const emailSchema = z.string().email();
+const passwordSchema = z.string().trim().min(1);
+const lastnameSchema = z.string().min(1);
+const firstnameSchema = z.string().min(1);
 
-const loginValidationRules = [loginValidationSchema, validateRequest];
+const loginSchema = z.object({
+  email: emailSchema,
+  password: passwordSchema,
+});
 
-const signupValidationSchema = [
-  body("email").isEmail().withMessage("L'adresse mail n'est pas valide."),
-  body("firstname").notEmpty().withMessage("Le champ prénom est obligatoire."),
-  body("lastname").notEmpty().withMessage("Le chanpm nom est obligatoire."),
-  body("password").notEmpty().withMessage("Le mot de passe est obligatoire."),
-];
+const signupSchema = z.object({
+  email: emailSchema,
+  password: passwordSchema,
+  lastname: lastnameSchema,
+  firstname: firstnameSchema,
+});
 
-const signupValidationRules = [signupValidationSchema, validateRequest];
-
-export { loginValidationRules, signupValidationRules };
+export { loginSchema, signupSchema };

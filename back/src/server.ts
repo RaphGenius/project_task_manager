@@ -8,8 +8,6 @@ const PORT = process.env.PORT || 3000;
 const force = false;
 
 sequelize.sync({ force }).then(() => {
-  console.log("Sequelize sync");
-
   if (force) seeding().catch((err) => console.log("error while seeding", err));
 
   app.listen(PORT, () => {

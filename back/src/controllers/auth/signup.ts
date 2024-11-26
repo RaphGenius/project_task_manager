@@ -11,9 +11,9 @@ const signup = async (req: Request<{}, {}, Body, {}>, res: Response) => {
   const { email, password } = req.body;
 
   try {
-    const isUserExist = await findUserByEmail(email);
+    const existingUser = await findUserByEmail(email);
 
-    if (isUserExist) {
+    if (existingUser) {
       res.status(401).json(errorBody("Cette adresse mail est déjà utilisé."));
       return;
     }
@@ -30,7 +30,6 @@ const signup = async (req: Request<{}, {}, Body, {}>, res: Response) => {
       .status(200)
       .json(succesBody("Succès lors de la création de l'utilisateur", user));
   } catch (error) {
-    console.log(error);
     res
       .status(500)
       .json(errorBody("Erreur lors de la création d'un utilisateur", error));
