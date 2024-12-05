@@ -4,6 +4,7 @@ import getAllTasks from "@/controllers/task/getAllTasks";
 import getTaskById from "@/controllers/task/getTaskById";
 import updateTask from "@/controllers/task/updateTask";
 import validateSchema from "@/middlewares/validationSchema";
+import verifyJWT from "@/middlewares/verifyJWT";
 import {
   createTaskSchema,
   idSchema,
@@ -13,7 +14,12 @@ import { Router } from "express";
 
 const taskRoutes = Router();
 
-taskRoutes.get("/:id", validateSchema(idSchema, "params"), getTaskById);
+taskRoutes.get(
+  "/:id",
+
+  validateSchema(idSchema, "params"),
+  getTaskById
+);
 taskRoutes.get("/", getAllTasks);
 
 taskRoutes.post("/", validateSchema(createTaskSchema), createTask);

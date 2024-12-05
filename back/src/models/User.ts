@@ -64,7 +64,14 @@ User.init(
   },
   {
     sequelize,
-    defaultScope: { attributes: { exclude: ["password"] } },
+    defaultScope: {
+      attributes: { exclude: ["password"] },
+    },
+    scopes: {
+      withPassword: {
+        attributes: { exclude: [] },
+      },
+    },
     hooks: {
       afterCreate(user: Partial<User>, _) {
         (user as Partial<User>).password = undefined;

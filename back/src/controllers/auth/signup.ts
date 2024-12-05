@@ -11,9 +11,9 @@ const signup = async (req: Request<{}, {}, Body, {}>, res: Response) => {
   const { email, password } = req.body;
 
   try {
-    const existingUser = await findUserByEmail(email);
+    const duplicatedUser = await findUserByEmail(email);
 
-    if (existingUser) {
+    if (duplicatedUser) {
       res.status(401).json(errorBody("Cette adresse mail est déjà utilisé."));
       return;
     }

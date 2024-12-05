@@ -1,12 +1,16 @@
 import { UserModel } from "@/models";
 import { IUser, IUserBeforeCreation } from "@/models/User";
+import { FindOptions } from "sequelize";
 
-type UserLogin = Pick<IUser, "id" | "password" | "role">;
-
-export const findUserByEmail = async (email: string) => {
-  const user: UserLogin | null = await UserModel.findOne({
+export const findUserByEmail = async (
+  email: string,
+  options?: FindOptions<IUser>,
+  scope?: string
+) => {
+  const UserModelScoped = scope ? UserModel.scope(scope) : UserModel;
+  const user = await UserModelScoped.findOne({
     where: { email },
-    attributes: ["id", "password", "role"],
+    ...options,
   });
   return user;
 };

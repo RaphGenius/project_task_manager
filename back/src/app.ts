@@ -6,7 +6,10 @@ import routes from "@routes/index";
 import { errorBody } from "@utils/response/responseformat";
 
 const app = express();
-
+app.use((_, __, next) => {
+  console.log("---------------------");
+  next();
+});
 app.use(cors()).use(morgan("dev")).use(express.json()).use(cookieParser());
 
 app.use("/api", routes);

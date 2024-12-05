@@ -9,6 +9,7 @@ const force = false;
 
 sequelize.sync({ force }).then(() => {
   if (force) seeding().catch((err) => console.log("error while seeding", err));
+  process.env.NODE_ENV = "dev";
 
   app.listen(PORT, () => {
     console.log(`Server running on http://localhost:${PORT}`);
